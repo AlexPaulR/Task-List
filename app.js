@@ -49,24 +49,24 @@ function addTask(e) {
   // li append to ul (TaskList)
   if (taskInput.value === "" || taskInput.value === " ") {
     alert("Please enter a task !");
+  } else {
+    const li = document.createElement("li");
+    li.className = "collection-item";
+    li.appendChild(document.createTextNode(taskInput.value));
+
+    const link = document.createElement("a");
+    link.className = "delete-item secondary-content";
+    link.innerHTML = '<i class="fa fa-remove"></i>';
+    li.appendChild(link);
+
+    taskList.appendChild(li);
+
+    // Store in Local Storage
+    storeTaskInLocalStorge(taskInput.value);
+
+    // Clear input
+    taskInput.value = "";
   }
-
-  const li = document.createElement("li");
-  li.className = "collection-item";
-  li.appendChild(document.createTextNode(taskInput.value));
-
-  const link = document.createElement("a");
-  link.className = "delete-item secondary-content";
-  link.innerHTML = '<i class="fa fa-remove"></i>';
-  li.appendChild(link);
-
-  taskList.appendChild(li);
-
-  // Store in Local Storage
-  storeTaskInLocalStorge(taskInput.value);
-
-  // Clear input
-  taskInput.value = "";
 
   // console.log(li);
   e.preventDefault();
