@@ -70,7 +70,7 @@ function addTask(e) {
     taskInput.value = "";
   }
 
-  // console.log(li);
+  console.log(li);
   e.preventDefault();
 }
 
